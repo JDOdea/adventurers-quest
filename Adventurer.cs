@@ -12,13 +12,15 @@ public class Adventurer
     public int Awesomeness { get; set; }
 
     public Robe ColorfulRobe { get; }
+    public Hat Hat { get; }
 
     // A constructor to make a new Adventurer object with a given name
-    public Adventurer(string name, Robe robe)
+    public Adventurer(string name, Robe robe, Hat hat)
     {
         Name = name;
         Awesomeness = 50;
         ColorfulRobe = robe;
+        Hat = hat;
     }
 
 
@@ -50,12 +52,7 @@ public class Adventurer
 
     public string GetDescription()
     {
-        string response = $"The adventurer, {Name} wears a {ColorfulRobe.Length} inch robe with the colors of";
-
-        /* for (int i = 0; i < ColorfulRobe.Colors.Count; i++)
-        {
-            response = response + ColorfulRobe.Colors[i];
-        } */
+        string response = $"The adventurer, {Name} wears a {Hat.ShininessDescription} hat, and a {ColorfulRobe.Length} inch robe with the colors of";
 
         var colors = String.Join(", ", ColorfulRobe.Colors.Take(ColorfulRobe.Colors.Count - 1));
         var lastColor = ColorfulRobe.Colors[ColorfulRobe.Colors.Count - 1];

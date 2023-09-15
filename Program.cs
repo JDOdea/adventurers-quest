@@ -17,10 +17,15 @@ Robe robe = new Robe
     {
         "green",
         "blue",
+        "purple",
         "yellow"
     }
 };
-Adventurer theAdventurer = new Adventurer(response, robe);
+Hat hat = new Hat
+{
+    ShininessLevel = 9
+};
+Adventurer theAdventurer = new Adventurer(response, robe, hat);
 Console.WriteLine(theAdventurer.GetDescription());
 
 bool gaming = true;
