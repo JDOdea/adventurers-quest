@@ -25,6 +25,7 @@ Hat hat = new Hat
 {
     ShininessLevel = 9
 };
+Prize prize = new("WIN");
 Adventurer theAdventurer = new Adventurer(response, robe, hat);
 Console.WriteLine(theAdventurer.GetDescription());
 
@@ -32,6 +33,7 @@ bool gaming = true;
 
 while (gaming)
     {
+    theAdventurer.Awesomeness = 50;
         // Create a few challenges for our Adventurer's quest
     // The "Challenge" Constructor takes three arguments
     //   the text of the challenge
@@ -98,7 +100,7 @@ while (gaming)
     {
         Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
     }
-
+    prize.ShowPrize(theAdventurer);
 
     //  Play again?
     string newGame = "";
