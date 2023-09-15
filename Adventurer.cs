@@ -13,6 +13,7 @@ public class Adventurer
 
     public Robe ColorfulRobe { get; }
     public Hat Hat { get; }
+    public int Successes { get; set; }
 
     // A constructor to make a new Adventurer object with a given name
     public Adventurer(string name, Robe robe, Hat hat)
@@ -21,6 +22,7 @@ public class Adventurer
         Awesomeness = 50;
         ColorfulRobe = robe;
         Hat = hat;
+        Successes = 0;
     }
 
 

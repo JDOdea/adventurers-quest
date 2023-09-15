@@ -33,7 +33,6 @@ bool gaming = true;
 
 while (gaming)
     {
-    theAdventurer.Awesomeness = 50;
         // Create a few challenges for our Adventurer's quest
     // The "Challenge" Constructor takes three arguments
     //   the text of the challenge
@@ -109,22 +108,25 @@ while (gaming)
     {
         challenge.RunChallenge(theAdventurer);
     }
+    prize.ShowPrize(theAdventurer);
 
     // This code examines how Awesome the Adventurer is after completing the challenges
     // And praises or humiliates them accordingly
     if (theAdventurer.Awesomeness >= maxAwesomeness)
     {
         Console.WriteLine("YOU DID IT! You are truly awesome!");
+        Console.WriteLine($"You had {theAdventurer.Successes} successes.");
     }
     else if (theAdventurer.Awesomeness <= minAwesomeness)
     {
         Console.WriteLine("Get out of my sight. Your lack of awesomeness offends me!");
+        Console.WriteLine($"You had {theAdventurer.Successes} successes.");
     }
     else
     {
         Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
+        Console.WriteLine($"You had {theAdventurer.Successes} successes.");
     }
-    prize.ShowPrize(theAdventurer);
 
     //  Play again?
     string newGame = "";
@@ -135,6 +137,8 @@ while (gaming)
         switch (newGameResponse)
         {
             case "Y":
+            theAdventurer.Awesomeness = 50 + (10 * theAdventurer.Successes);
+            theAdventurer.Successes = 0;
             newGame = "YES";
             break;
             case "N":
