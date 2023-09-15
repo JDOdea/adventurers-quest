@@ -11,11 +11,14 @@ public class Adventurer
     //  So it can be read and changed by any code in the application
     public int Awesomeness { get; set; }
 
+    public Robe ColorfulRobe { get; }
+
     // A constructor to make a new Adventurer object with a given name
-    public Adventurer(string name)
+    public Adventurer(string name, Robe robe)
     {
         Name = name;
         Awesomeness = 50;
+        ColorfulRobe = robe;
     }
 
 
@@ -43,5 +46,20 @@ public class Adventurer
         }
 
         return $"Adventurer, {Name}, is {status}";
+    }
+
+    public string GetDescription()
+    {
+        string response = $"The adventurer, {Name} wears a {ColorfulRobe.Length} inch robe with the colors of";
+
+        /* for (int i = 0; i < ColorfulRobe.Colors.Count; i++)
+        {
+            response = response + ColorfulRobe.Colors[i];
+        } */
+
+        var colors = String.Join(", ", ColorfulRobe.Colors.Take(ColorfulRobe.Colors.Count - 1));
+        var lastColor = ColorfulRobe.Colors[ColorfulRobe.Colors.Count - 1];
+        
+        return $"{response} {colors}, and {lastColor}.";
     }
 }

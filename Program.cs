@@ -10,7 +10,18 @@
         Console.WriteLine("Enter thine own name...");
         response = Console.ReadLine();
     }
-    Adventurer theAdventurer = new Adventurer(response);
+Robe robe = new Robe
+{
+    Length = 10,
+    Colors = new List<string>
+    {
+        "green",
+        "blue",
+        "yellow"
+    }
+};
+Adventurer theAdventurer = new Adventurer(response, robe);
+Console.WriteLine(theAdventurer.GetDescription());
 
 bool gaming = true;
 
