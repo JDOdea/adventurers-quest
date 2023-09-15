@@ -58,6 +58,17 @@ while (gaming)
         4, 20
     );
 
+    Challenge howOld = new Challenge("How old am I?", 0, 20);
+    Challenge bestBand = new Challenge(
+        @"Who's the best band?
+    1) Radiohead
+    2) Nickelback
+    3) Smash Mouth
+    4) Jonas Brothers
+    ",
+        1, 80
+    );
+
     // "Awesomeness" is like our Adventurer's current "score"
     // A higher Awesomeness is better
 
@@ -77,11 +88,24 @@ while (gaming)
         theAnswer,
         whatSecond,
         guessRandom,
-        favoriteBeatle
+        favoriteBeatle,
+        howOld,
+        bestBand
     };
+    List<Challenge> selectedChallenges = new List<Challenge>();
 
     // Loop through all the challenges and subject the Adventurer to them
-    foreach (Challenge challenge in challenges)
+    /* foreach (Challenge challenge in challenges)
+    {
+        challenge.RunChallenge(theAdventurer);
+    } */
+    for (int i = 0; i < 5; i++)
+    {
+        int randomIndex = new Random().Next(challenges.Count);
+        selectedChallenges.Add(challenges[randomIndex]);
+        challenges.Remove(challenges[randomIndex]);
+    }
+    foreach (Challenge challenge in selectedChallenges)
     {
         challenge.RunChallenge(theAdventurer);
     }
